@@ -5,7 +5,7 @@ utaskweb
 Installation
 ------------
 
-.. code-block:: bash
+.. code-block:: sh
 
   git clone https://github.com/wkentaro/utaskweb
   cd utaskweb
@@ -14,4 +14,18 @@ Installation
 
 Usage
 -----
+
+.. code-block:: python
+
+  >>> import utaskweb
+  >>> for k, v in utaskweb.get_class_cancels()[1][0].items():
+          print k,v
+  ...
+  updated 2015/3/25
+  room 154教室
+  period 2
+  day 木
+  date 4月9日
+  teacher 相澤 隆
+  subject ドイツ語二列
 
