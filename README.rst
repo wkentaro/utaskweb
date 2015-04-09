@@ -3,8 +3,16 @@ utaskweb
 ========
 
 Installation
-------------
+============
 
+From pypi
+---------
+.. code-block:: sh
+
+  pip install utaskweb
+
+From source
+-----------
 .. code-block:: sh
 
   git clone https://github.com/wkentaro/utaskweb
@@ -13,7 +21,7 @@ Installation
 
 
 Usage
------
+=====
 
 .. code-block:: python
 
