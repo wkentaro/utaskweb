@@ -1,6 +1,7 @@
 ========
 utaskweb
 ========
+Utils for scraping and crawling Utask-web website and get announces from http://www.c.u-tokyo.ac.jp.
 
 Installation
 ============
