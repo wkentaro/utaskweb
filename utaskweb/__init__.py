@@ -74,6 +74,12 @@ def get_class_roomchanges(date_fill=False):
     return updated, changes
 
 
+def get_text_if_exists(node):
+    if 'text' in dir(node):
+        return node.text.strip()
+    return node
+
+
 def get_admin_announces():
     """Get announces from the administration office of University of Tokyo"""
     url="http://www.c.u-tokyo.ac.jp/zenki/news/kyoumu/index.html"
@@ -92,8 +98,9 @@ def get_admin_announces():
             continue
         if str(line).startswith("<dt>"):
             imgs = line.find_all('img')
+            date = get_text_if_exists(line.contents[0])
             data.append(
-                    {"date"       : line.contents[0].strip(),
+                    {"date"       : date,
                      "kind_image" : host + imgs[0].attrs["src"],
                      "grade_image": host + imgs[1].attrs["src"],
                     },
