@@ -1,6 +1,10 @@
 ========
 utaskweb
 ========
+
+.. image:: https://travis-ci.org/wkentaro/utaskweb.svg
+    :target: https://travis-ci.org/wkentaro/utaskweb
+
 .. image:: https://badge.fury.io/py/utaskweb.svg
     :target: http://badge.fury.io/py/utaskweb
 
