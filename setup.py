@@ -17,7 +17,7 @@ install_requires = [
 
 long_desc = """Utils for scraping and crawling Utask-web website
 and get announces from http://www.c.u-tokyo.ac.jp"""
-version='0.1.1'
+version='0.1.2'
 
 setup(
     name="utaskweb",
