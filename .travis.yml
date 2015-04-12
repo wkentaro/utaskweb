@@ -1,6 +1,5 @@
 language: ruby
 before_script: 
-  - sudo apt-get install python
   - sudo pip install requests
   - sudo pip install beautifulsoup4
   - sudo pip install nose
