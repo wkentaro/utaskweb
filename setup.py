@@ -39,5 +39,6 @@ setup(
         'Operating System :: POSIX',
         'Topic :: Internet :: WWW/HTTP',
     ],
+    test_suite='nose.collector',
 )
 

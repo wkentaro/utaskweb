@@ -1,0 +1,9 @@
+language: ruby
+before_script: 
+  - sudo apt-get install python
+  - sudo pip install requests
+  - sudo pip install beautifulsoup4
+script:
+  - python setup.py test
+  - python setup.py install
+
