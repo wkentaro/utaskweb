@@ -4,16 +4,16 @@
 import requests
 from bs4 import BeautifulSoup
 
-from .common import *
+from .common import get_text_if_exists
 
 
 def get_admin_announces():
     """Get announces from the administration office of University of Tokyo"""
-    url="http://www.c.u-tokyo.ac.jp/zenki/news/kyoumu/index.html"
-    host=url.split("/zenki", 2)[0]
+    url = "http://www.c.u-tokyo.ac.jp/zenki/news/kyoumu/index.html"
+    host = url.split("/zenki", 2)[0]
 
-    res=requests.get(url)
-    soup=BeautifulSoup(res.text)
+    res = requests.get(url)
+    soup = BeautifulSoup(res.text)
     # updated
     updated = soup.find('p', {'id': 'update'})
     updated = updated.text.strip().split(u'：')[1]
@@ -25,7 +25,7 @@ def get_admin_announces():
             continue
         if str(line).startswith("<dt>"):
             imgs = line.find_all('img')
-            date = get_text_if_exists(line.contents[0])
+            date = get_text_if_exists(line.contents[0]).strip()
             data.append(
                     {"date"       : date,
                      "kind_image" : host + imgs[0].attrs["src"],
