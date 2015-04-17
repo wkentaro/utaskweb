@@ -17,7 +17,7 @@ install_requires = [
 
 with open('README.rst') as f:
     long_desc = f.read()
-version='0.1.2'
+version='0.1.3'
 
 setup(
     name="utaskweb",
