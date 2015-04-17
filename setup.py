@@ -15,8 +15,8 @@ install_requires = [
     'beautifulsoup4==4.3.2',
 ]
 
-long_desc = """Utils for scraping and crawling Utask-web website
-and get announces from http://www.c.u-tokyo.ac.jp"""
+with open('README.rst') as f:
+    long_desc = f.read()
 version='0.1.2'
 
 setup(
@@ -26,6 +26,8 @@ setup(
     long_description=long_desc,
     author="Kentaro Wada",
     author_email='www.kentaro.wada@gmail.com',
+    maintainer='Kentaro Wada',
+    maintainer_email='www.kentaro.wada@gmail.com',
     url="http://github.com/wkentaro/utaskweb",
     install_requires=install_requires,
     packages=find_packages(),
