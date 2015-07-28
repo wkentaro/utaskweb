@@ -10,22 +10,24 @@ utaskweb
 
 Utils for scraping and crawling Utask-web website and get announces from http://www.c.u-tokyo.ac.jp.
 
+
 Installation
 ============
+
 
 From pypi
 ---------
 .. code-block:: sh
 
-  pip install utaskweb
+  $ pip install utaskweb
+
 
 From source
 -----------
 .. code-block:: sh
 
-  git clone https://github.com/wkentaro/utaskweb
-  cd utaskweb
-  python setup.py install
+  $ git clone https://github.com/wkentaro/utaskweb && cd utaskweb
+  $ python setup.py install
 
 
 Usage
@@ -44,4 +46,3 @@ Usage
   date 4月9日
   teacher 相澤 隆
   subject ドイツ語二列
-
