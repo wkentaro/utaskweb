@@ -29,17 +29,13 @@ def main():
             subprocess.check_call(cmd, shell=True)
         sys.exit(0)
 
-    install_requires = [
-        'requests>=2.2.1',
-        'beautifulsoup4>=4.3.2',
-        ]
-
     with open('README.rst') as f:
         long_desc = f.read()
 
     setup(
         name='utaskweb',
         version=version,
+        package_dir={'': 'src'},
         description='Utils for scraping and crawling UTask-web',
         long_description=long_desc,
         author='Kentaro Wada',
@@ -47,7 +43,7 @@ def main():
         maintainer='Kentaro Wada',
         maintainer_email='www.kentaro.wada@gmail.com',
         url='http://github.com/wkentaro/utaskweb',
-        install_requires=install_requires,
+        install_requires=['requests', 'beautifulsoup4'],
         packages=find_packages(),
         package_data={},
         license='MIT',
