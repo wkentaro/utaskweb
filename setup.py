@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 
 def get_version():
     try:
-        file_, path, desc = imp.find_module('__version__', ['utaskweb'])
+        file_, path, desc = imp.find_module('__version__', ['src/utaskweb'])
         version = imp.load_module('__version__', file_, path, desc).version
     finally:
         if file_ is not None:
