@@ -17,47 +17,42 @@ def get_version():
     return version
 
 
-def main():
-    version = get_version()
+version = get_version()
 
-    # publish helper
-    if sys.argv[-1] == 'publish':
-        for cmd in [
-                'python setup.py sdist upload',
-                'git tag {}'.format(version),
-                'git push origin master --tag']:
-            subprocess.check_call(cmd, shell=True)
-        sys.exit(0)
+# publish helper
+if sys.argv[-1] == 'publish':
+    for cmd in [
+            'python setup.py sdist upload',
+            'git tag {}'.format(version),
+            'git push origin master --tag']:
+        subprocess.check_call(cmd, shell=True)
+    sys.exit(0)
 
-    with open('README.rst') as f:
-        long_desc = f.read()
+with open('README.rst') as f:
+    long_desc = f.read()
 
-    setup(
-        name='utaskweb',
-        version=version,
-        package_dir={'': 'src'},
-        description='Utils for scraping and crawling UTask-web',
-        long_description=long_desc,
-        author='Kentaro Wada',
-        author_email='www.kentaro.wada@gmail.com',
-        maintainer='Kentaro Wada',
-        maintainer_email='www.kentaro.wada@gmail.com',
-        url='http://github.com/wkentaro/utaskweb',
-        install_requires=['requests', 'beautifulsoup4'],
-        packages=find_packages(),
-        package_data={},
-        license='MIT',
-        keywords='crawling scraping utility',
-        classifiers=[
-            'Development Status :: 5 - Production/Stable',
-            'Intended Audience :: Developers',
-            'License :: OSI Approved :: MIT License',
-            'Operating System :: POSIX',
-            'Topic :: Internet :: WWW/HTTP',
-        ],
-        test_suite='nose.collector',
-    )
-
-
-if __name__ == '__main__':
-    main()
+setup(
+    name='utaskweb',
+    version=version,
+    package_dir={'': 'src'},
+    description='Utils for scraping and crawling UTask-web',
+    long_description=long_desc,
+    author='Kentaro Wada',
+    author_email='www.kentaro.wada@gmail.com',
+    maintainer='Kentaro Wada',
+    maintainer_email='www.kentaro.wada@gmail.com',
+    url='http://github.com/wkentaro/utaskweb',
+    install_requires=['requests', 'beautifulsoup4'],
+    packages=find_packages(),
+    package_data={},
+    license='MIT',
+    keywords='crawling scraping utility',
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: POSIX',
+        'Topic :: Internet :: WWW/HTTP',
+    ],
+    test_suite='nose.collector',
+)
