@@ -46,3 +46,10 @@ Usage
   date 4月9日
   teacher 相澤 隆
   subject ドイツ語二列
+
+
+License
+=======
+Copyright (C) 2015 Kentaro Wada
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php

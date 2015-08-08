@@ -1,49 +1,43 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
+import os
 import sys
 import imp
 import subprocess
 from setuptools import setup, find_packages
 
+this_dir = os.path.dirname(os.path.abspath(__file__))
+
 
 def get_version():
-    try:
-        file_, path, desc = imp.find_module('__version__', ['src/utaskweb'])
-        version = imp.load_module('__version__', file_, path, desc).version
-    finally:
-        if file_ is not None:
-            file_.close()
-    return version
+    sys.path.insert(0, os.path.join(this_dir, 'src'))
+    from utaskweb.version import __version__
+    return __version__
 
-
-version = get_version()
 
 # publish helper
 if sys.argv[-1] == 'publish':
     for cmd in [
             'python setup.py sdist upload',
-            'git tag {}'.format(version),
+            'git tag {}'.format(get_version()),
             'git push origin master --tag']:
         subprocess.check_call(cmd, shell=True)
     sys.exit(0)
 
-with open('README.rst') as f:
-    long_desc = f.read()
-
 setup(
     name='utaskweb',
-    version=version,
+    version=get_version(),
     package_dir={'': 'src'},
     packages=find_packages('src'),
     description='Utils for scraping and crawling UTask-web',
-    long_description=long_desc,
+    long_description=open('README.rst').read(),
     author='Kentaro Wada',
     author_email='www.kentaro.wada@gmail.com',
     maintainer='Kentaro Wada',
     maintainer_email='www.kentaro.wada@gmail.com',
     url='http://github.com/wkentaro/utaskweb',
-    install_requires=['requests', 'beautifulsoup4'],
+    install_requires=open('requirements.txt').readlines(),
     package_data={},
     license='MIT',
     keywords='crawling scraping utility',
