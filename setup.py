@@ -3,6 +3,7 @@
 #
 import os
 import sys
+import re
 import imp
 import subprocess
 from setuptools import setup, find_packages
@@ -11,10 +12,13 @@ this_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 def get_version():
-    sys.path.insert(0, os.path.join(this_dir, 'src'))
-    from utaskweb.version import __version__
-    return __version__
-
+    version_file = os.path.join(this_dir, 'src/utaskweb/version.py')
+    with open(version_file) as f:
+        for line in f.readlines():
+            line = line.strip()
+            if re.match('^__version__ = .*', line):
+                version = re.split('^__version__ = ', line)[-1].strip("'")
+    return version
 
 # publish helper
 if sys.argv[-1] == 'publish':
